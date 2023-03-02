@@ -1,0 +1,20 @@
+version: '3.7'
+
+services:
+  
+  todo-web:
+    image: diamol/ch06-todo-list
+    ports:
+      - "8020:80"
+    networks:
+      - app-net
+    volumes:
+      - type: bind
+        source: /Users/tim/tmastny/diamol/ch07/data
+        target: /data
+    restart: always
+
+networks:
+  app-net:
+    external:
+      name: nat
